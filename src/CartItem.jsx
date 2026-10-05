@@ -20,9 +20,9 @@ const CartItem = ({ onContinueShopping }) => {
     onContinueShopping(e);
   };
 
-  const handleCheckoutShopping = (e) => {
-    alert('Functionality to be added for future reference');
-  };
+//   const handleCheckoutShopping = (e) => {
+//     alert('Functionality to be added for future reference');
+//   };
   
 
   const handleIncrement = (item) => {
@@ -46,6 +46,9 @@ const CartItem = ({ onContinueShopping }) => {
     const unitPrice = parseFloat(item.cost.substring(1));
     return (unitPrice * item.quantity).toFixed(2);
   };
+
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+
 
   return (
     <div className="cart-container">
@@ -76,6 +79,7 @@ const CartItem = ({ onContinueShopping }) => {
         <button className="get-started-button" onClick={(e) => handleContinueShopping(e)}>Continue Shopping</button>
         <br />
         <button className="get-started-button1">Checkout</button>
+        <div className="cart-counter">Cart: {totalQuantity} items</div>
       </div>
     </div>
   );
